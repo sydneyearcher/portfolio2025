@@ -1,0 +1,293 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #d5d0cd;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    background: #9a998c;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: #555;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #555;
+    text-align: center;
+    padding: 2rem;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Button Styling */
+.hero .btn {
+    background: #9a998c;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    position: absolute;  /* Keep button positioned absolutely */
+    bottom: 2rem;  /* Keep it 2rem from the bottom */
+    z-index: 10;
+    left: 50%;  /* Center horizontally */
+    transform: translateX(-50%);  /* Adjust for exact centering */
+}
+
+.hero .btn:hover {
+    background: #a2a392;
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem; /* Space between heading and button */
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #f8f4e3;
+    animation: blink-cursor 0.6s steps(2) infinite;
+}
+
+
+@keyframes blink-cursor {
+    0% { border-right-color: #000; }
+    50% { border-right-color: transparent; }
+    100% { border-right-color: #000; }
+}
+
+
+/* About Section */
+.about {
+    padding: 4rem 2rem;
+    background: #fff;
+    color: #333;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Optional: centers content horizontally */
+    gap: 2rem; /* Adds space between the text and image */
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.profile-img {
+    width: 150px; /* Keep the desired size */
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem; /* Adjust this if needed */
+    object-fit: cover;
+    position: relative;
+    top: -20px; /* Move the image higher by 20px; adjust this value as needed */
+}
+
+.about-content:hover .profile-img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+/* Work Section */
+.work {
+    padding: 4rem 2rem;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.work-item {
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+}
+
+.work-item img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 2rem;
+    background: #fff;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact button {
+    background: #9a998c;
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact button:hover {
+    background: #a2a392;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack text and image vertically on smaller screens */
+    }
+
+    .profile-img {
+        top: -10px; /* Fine-tune the offset for smaller screens */
+    }
+}
+
+/* Footer */
+.footer {
+    background: #9a998c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #d5d0cd; /* Change this to the desired background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: background 0.3s ease; /* Smooth transition for hover */
+}
+
+.back-to-top:hover {
+    background-color: #a2a392; /* Hover color */
+}
+
+/* General Typography */
+body {
+    font-family: 'Poppins', sans-serif; /* Set the base font for body text */
+    color: #333; /* Ensure a clean, readable text color */
+}
+
+h2 {
+    font-family: 'Lora', serif; /* Use a contrasting font for headings */
+    font-size: 2.5rem;
+    color: #555; /* Slightly muted heading color */
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8; /* Improved readability */
+    margin-bottom: 1.5rem;
+}
