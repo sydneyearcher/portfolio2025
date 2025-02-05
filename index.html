@@ -82,20 +82,28 @@
 
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
-        <form action="#" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="button" onclick="sendMail()" class="btn">Send</button>
         </form>
     </section>
 
     <footer class="footer">
         <p>&copy; 2025 MyPortfolio. All rights reserved.</p>
     </footer>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script src="form.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "TYqSEsLdvSC6o5cLx",
+            });
+        })();
+    </script>
 </body>
 
 </html>
