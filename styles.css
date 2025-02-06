@@ -81,7 +81,7 @@ body {
 }
 
 .hero .btn:hover {
-    background: #a2a392;
+    background: #FAE6E7;
 }
 
 
@@ -220,7 +220,7 @@ body {
 }
 
 .contact button:hover {
-    background: #a2a392;
+    background: #f7d1d8;
 }
 
 @media (max-width: 768px) {
