@@ -71,3 +71,16 @@ window.addEventListener('scroll', () => {
     const heroSection = document.querySelector('.hero');
     heroSection.style.backgroundPositionY = `${window.scrollY * 0.5}px`; // Adjust the multiplier for effect strength
 });
+
+//modal
+  function openModal(title, image, description, link) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalImage").src = image;
+    document.getElementById("modalDescription").innerText = description;
+    document.getElementById("modalLink").href = link;
+    document.getElementById("projectModal").style.display = "flex";
+  }
+  
+  function closeModal() {
+    document.getElementById("projectModal").style.display = "none";
+  }

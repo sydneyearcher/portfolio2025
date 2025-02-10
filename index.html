@@ -60,25 +60,24 @@
 
     <section id="work" class="work">
         <h2>My Work</h2>
-        <div class="work-grid">
-            <div class="work-item">
-                <img src="project1.jpg" alt="Project 1">
-                <h3>Object Oriented Design</h3>
-                <p>Project description here...</p>
-            </div>
-            <div class="work-item">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>React Components & JSX</h3>
-                <p>Project description here...</p>
-            </div>
-            <div class="work-item">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>React Native & Expo</h3>
-                <p>Project description here...</p>
-            </div>
-            <!-- Add more projects as needed -->
+
+        <div class="project-blurb"
+            onclick="openModal('Project Title', 'project-image.jpg', 'This is a project description.', 'https://example.com')">
+            <h3>Project Title</h3>
+            <p>Short description...</p>
+        </div>
+        <div class="project-blurb"
+            onclick="openModal('Brand Identity', 'branding.jpg', 'A branding project with custom typography.', 'https://example.com')">
+            <h3>Brand Identity</h3>
+            <p>Click to view details.</p>
+        </div>
+        <div class="project-blurb"
+            onclick="openModal('Brand Identity', 'branding.jpg', 'A branding project with custom typography.', 'https://example.com')">
+            <h3>Brand Identity</h3>
+            <p>Click to view details.</p>
         </div>
     </section>
+
 
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
@@ -93,6 +92,15 @@
     <footer class="footer">
         <p>&copy; 2025 MyPortfolio. All rights reserved.</p>
     </footer>
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="Project Image">
+            <p id="modalDescription"></p>
+            <a id="modalLink" href="" target="_blank">View Project</a>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="form.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
