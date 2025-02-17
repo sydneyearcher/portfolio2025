@@ -292,3 +292,10 @@ h2 {
     line-height: 1.8; /* Improved readability */
     margin-bottom: 1.5rem;
 }
+
+
+.work-item video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: Matches the style of images */
+}
