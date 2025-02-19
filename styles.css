@@ -215,6 +215,30 @@ body {
     height: auto;
 }
 
+.work {
+    text-align: center; /* Center section title */
+}
+
+.carousel {
+    position: relative;
+    width: 80%; /* Adjusts to fit your theme */
+    margin: 0 auto; /* Center the carousel */
+    overflow: hidden;
+}
+
+.work-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure it takes full space */
+}
+
+.work-item {
+    flex: 0 0 100%; /* Each item takes full width */
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out;
+}
+
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -222,26 +246,43 @@ body {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     cursor: pointer;
-    z-index: 10;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    border-radius: 50%;
 }
 
-.prev {
+.carousel-button.prev {
     left: 10px;
 }
 
-.next {
+.carousel-button.next {
     right: 10px;
 }
 
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 @media (max-width: 768px) {
-    .work-carousel {
-        max-width: 90%;
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .work-item {
-        flex: 0 0 100%; /* Stack items fully in smaller screens */
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image img {
+        width: 80%; /* Make images responsive */
     }
 }
 
