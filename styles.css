@@ -187,6 +187,64 @@ body {
     margin-bottom: 1rem;
 }
 
+.work-item {
+    flex: 0 0 80%; /* Shrinks the items to 80% of carousel width */
+    max-width: 600px; /* Prevents items from being too large */
+    margin-right: 16px; /* Adjust spacing */
+}
+.work-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: 800px; /* Adjust width */
+    margin: 0 auto; /* Center it */
+}
+  
+  .work-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 16px; /* Adjust spacing between items as needed */
+    /* Add additional styling for your work items */
+  }
+  
+.work-item video,
+.work-item img {
+    width: 100%;
+    max-width: 500px; /* Keep it from being too large */
+    height: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .work-carousel {
+        max-width: 90%;
+    }
+
+    .work-item {
+        flex: 0 0 100%; /* Stack items fully in smaller screens */
+    }
+}
+
 /* Contact Section */
 .contact {
     padding: 4rem 2rem;
@@ -273,11 +331,6 @@ body {
 
 
 /* General Typography */
-body {
-    font-family: 'Poppins', sans-serif; /* Set the base font for body text */
-    color: #333; /* Ensure a clean, readable text color */
-}
-
 h2 {
     font-family: 'Lora', serif; /* Use a contrasting font for headings */
     font-size: 2.5rem;
@@ -294,8 +347,3 @@ h2 {
 }
 
 
-.work-item video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px; /* Optional: Matches the style of images */
-}

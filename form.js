@@ -1,3 +1,19 @@
+const carousel = document.querySelector('.work-carousel');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
+
+const scrollAmount = 300; // Adjust based on your design
+
+nextButton.addEventListener('click', () => {
+  carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+prevButton.addEventListener('click', () => {
+  carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+
+
 function sendMail() {
     let parms = {
         name: document.getElementById("name").value,
