@@ -74,3 +74,15 @@ window.addEventListener('scroll', () => {
     const heroSection = document.querySelector('.hero');
     heroSection.style.backgroundPositionY = `${window.scrollY * 0.5}px`; // Adjust the multiplier for effect strength
 });
+
+
+// navbar for mobile
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
+    if (window.scrollY > 50) {
+        header.classList.add("shrink"); // Add shrink class when scrolling down
+    } else {
+        header.classList.remove("shrink"); // Remove class when at the top
+    }
+});
+

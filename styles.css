@@ -18,10 +18,17 @@ body {
     background: #f4bbc9;
     color: #F7EEED;
     padding: 1rem 2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.header.shrink {
+    padding: 0.5rem 2rem; /* Reduce padding */
+    background: #f4a6b8; /* Optional: Darker shade on scroll */
 }
 
 .nav {
