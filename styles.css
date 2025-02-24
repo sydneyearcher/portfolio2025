@@ -63,14 +63,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
-    color: #555;
     text-align: center;
+    width: 100%;
     padding: 2rem;
-    background-attachment: fixed;
-    position: relative;
 }
+
 
 /* Button Styling */
 .hero .btn {
@@ -92,16 +89,13 @@ body {
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #f8f4e3;
-    animation: none;
-    max-width: 100%;
-    width: 100%; /* Ensure it spans fully */
-    display: block; /* Prevent inline issues */
+    font-size: 2rem;
+    max-width: 90%;
+    min-width: 300px;
     text-align: center;
+    white-space: normal; /* Change from nowrap to normal */
+    overflow: visible; /* Ensure text is fully displayed */
+    display: block;
 }
 @keyframes typing {
     from { width: 0; }
@@ -440,6 +434,6 @@ h2 {
         white-space: nowrap;
         overflow: hidden;
         display: inline-block;
-        animation: none;
+        animation: typing 3s steps(20, end) forwards, blink-cursor 0.6s steps(2) infinite;
     }
 }
