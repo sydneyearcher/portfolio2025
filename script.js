@@ -51,20 +51,23 @@ document.querySelectorAll('.about, .work, .contact').forEach(section => {
 });
 
 // Typewriter Effect for Hero Section
-const heroText = document.querySelector('.hero h1');
-const text = heroText.textContent;
-heroText.textContent = '';
-let i = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const heroText = document.querySelector('.hero h1');
+    const text = heroText.textContent;
+    heroText.textContent = '';
+    let i = 0;
 
-function typeWriter() {
-    if (i < text.length) {
-        heroText.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100); // Adjust speed here (100ms per character)
+    function typeWriter() {
+        if (i < text.length) {
+            heroText.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
     }
-}
 
-window.addEventListener('load', typeWriter);
+    typeWriter();
+});
+
 
 // Parallax Scrolling Effect
 window.addEventListener('scroll', () => {

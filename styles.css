@@ -139,14 +139,12 @@ body {
 }
 
 .profile-img {
-    width: 150px; /* Keep the desired size */
-    height: 150px;
+    width: 150px;
+    height: auto; /* Keep aspect ratio */
     border-radius: 50%;
-    margin-bottom: 1rem; /* Adjust this if needed */
     object-fit: cover;
-    position: relative;
-    top: -20px; /* Move the image higher by 20px; adjust this value as needed */
 }
+
 
 .about-content:hover .profile-img {
     transform: scale(1.05);
