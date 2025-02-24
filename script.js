@@ -1,38 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.querySelector('.work-carousel');
-    const items = document.querySelectorAll('.work-item');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-    let index = 0;
-    const totalItems = items.length;
-
-    function updateCarousel() {
-        const offset = -index * 100; // Moves by 100% of container width
-        carousel.style.transform = `translateX(${offset}%)`;
-    }
-
-    nextButton.addEventListener('click', () => {
-        if (index < totalItems - 1) {
-            index++;
-        } else {
-            index = 0; // Loop back to the first item
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
         }
-        updateCarousel();
     });
-
-    prevButton.addEventListener('click', () => {
-        if (index > 0) {
-            index--;
-        } else {
-            index = totalItems - 1; // Loop back to the last item
-        }
-        updateCarousel();
-    });
-
-    updateCarousel();
 });
 
+// Back-to-Top Button
 // Back-to-Top Button
 const backToTopButton = document.createElement('button');
 backToTopButton.textContent = '↑';
