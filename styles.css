@@ -97,6 +97,15 @@ body {
     text-align: center;
 }
 
+
+
+@keyframes blink-cursor {
+    0% { border-right-color: #000; }
+    50% { border-right-color: transparent; }
+    100% { border-right-color: #000; }
+}
+
+
 /* About Section */
 .about {
     padding: 4rem 2rem;
