@@ -76,13 +76,4 @@ window.addEventListener('scroll', () => {
 });
 
 
-// navbar for mobile
-window.addEventListener("scroll", function () {
-    const header = document.querySelector(".header");
-    if (window.scrollY > 50) {
-        header.classList.add("shrink"); // Add shrink class when scrolling down
-    } else {
-        header.classList.remove("shrink"); // Remove class when at the top
-    }
-});
 
