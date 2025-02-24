@@ -97,15 +97,6 @@ body {
     text-align: center;
 }
 
-
-
-@keyframes blink-cursor {
-    0% { border-right-color: #000; }
-    50% { border-right-color: transparent; }
-    100% { border-right-color: #000; }
-}
-
-
 /* About Section */
 .about {
     padding: 4rem 2rem;
@@ -399,6 +390,12 @@ h2 {
 
 /*mobile version refining*/
 
+@keyframes blink-cursor {
+    0% { border-right-color: #000; }
+    50% { border-right-color: transparent; }
+    100% { border-right-color: #000; }
+}
+
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
@@ -417,10 +414,11 @@ h2 {
         text-align: center;
     }
     .hero h1 {
-        font-size: 2rem; /* Smaller text on mobile */
-        white-space: normal; /* Allow text to wrap */
-        word-wrap: break-word;
+        font-size: 2rem; /* Smaller text for mobile */
+        max-width: 90%; /* Ensures text doesn’t overflow */
         text-align: center;
-        border-right: none; /* Optional: Removes typewriter cursor */
+        white-space: nowrap; /* Keep typewriter effect */
+        overflow: hidden; /* Keep hidden overflow for effect */
+        display: inline-block; /* Helps keep it centered */
     }
 }
