@@ -97,7 +97,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid #f8f4e3;
-    animation: typing 3s steps(30, end) forwards, blink-cursor 0.6s steps(2) infinite;
+    animation: none;
     max-width: 100%;
     width: 100%; /* Ensure it spans fully */
     display: block; /* Prevent inline issues */
@@ -440,6 +440,6 @@ h2 {
         white-space: nowrap;
         overflow: hidden;
         display: inline-block;
-        animation: typing 3s steps(20, end) forwards, blink-cursor 0.6s steps(2) infinite;
+        animation: none;
     }
 }
