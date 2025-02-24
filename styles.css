@@ -91,24 +91,22 @@ body {
     background: #FAE6E7;
 }
 
-
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 2rem;
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
     border-right: 3px solid #f8f4e3;
-    animation: typing 3s steps(20, end) forwards, blink-cursor 0.6s steps(2) infinite;
-    max-width: 100%; /* Ensure full width */
+    animation: typing 3s steps(30, end) forwards, blink-cursor 0.6s steps(2) infinite;
+    max-width: 100%;
+    width: 100%; /* Ensure it spans fully */
+    display: block; /* Prevent inline issues */
     text-align: center;
-    display: inline-block; /* Helps center the effect */
 }
-
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; } /* Ensure it fully expands */
 }
-
 
 
 @keyframes blink-cursor {
@@ -437,6 +435,7 @@ h2 {
     .hero h1 {
         font-size: 2rem;
         max-width: 90%;
+        min-width: 300px;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
