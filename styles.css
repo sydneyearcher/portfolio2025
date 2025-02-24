@@ -87,12 +87,16 @@ body {
 
 .hero h1 {
     font-size: 3rem;
-    margin-bottom: 2rem; /* Space between heading and button */
+    margin-bottom: 2rem;
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid #f8f4e3;
     animation: blink-cursor 0.6s steps(2) infinite;
+    max-width: 90%; /* Prevents it from overflowing */
+    word-wrap: break-word; /* Ensures long words don't break layout */
+    text-align: center;
 }
+
 
 
 @keyframes blink-cursor {
@@ -411,5 +415,12 @@ h2 {
         padding: 10px;
         width: 100%;
         text-align: center;
+    }
+    .hero h1 {
+        font-size: 2rem; /* Smaller text on mobile */
+        white-space: normal; /* Allow text to wrap */
+        word-wrap: break-word;
+        text-align: center;
+        border-right: none; /* Optional: Removes typewriter cursor */
     }
 }
