@@ -171,37 +171,56 @@ body {
 }
 
 /* Work Section / Carousel */
+/* Work Section / Carousel */
 .work {
     padding: 4rem 2rem;
     background: #f4f4f4;
     text-align: center;
+    overflow: hidden; /* Ensures no overflow is visible */
 }
+
 
 .carousel {
     position: relative;
-    width: 80%; /* Keeps it within a readable width */
-    margin: 0 auto; /* Center the carousel */
+    width: 80%; /* Adjust as necessary */
+    margin: 0 auto;
     overflow: hidden;
+    padding: 0 20px; /* Add padding to ensure space on the sides */
 }
 
 .work-carousel {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%; /* Ensure it takes full space */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+    scroll-behavior: smooth;
+}
+
+.work-carousel::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome/Safari */
 }
 
 .work-item {
-    flex: 0 0 100%; /* Each item takes full width */
+    flex: 0 0 80%; /* Adjust width to make swiping easier */
+    scroll-snap-align: start;
     text-align: center;
     padding: 20px;
-    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    box-sizing: border-box;
 }
+
 
 .work-item img,
 .work-item video {
     width: 100%; /* Ensures images and videos are responsive */
     height: auto;
     object-fit: cover; /* Keeps aspect ratio and ensures images/videos fill the space without distortion */
+    border-radius: 4px; /* Rounded corners for media */
 }
 
 .work-item .caption {
@@ -214,6 +233,9 @@ body {
     padding: 0.5rem;
     font-size: 1.2rem;
     border-radius: 4px;
+    font-family: 'Arial', sans-serif; /* Optional font change */
+    max-width: 90%; /* Optional: ensures caption doesn't stretch too wide */
+    margin: 0 auto; /* Centering caption */
 }
 
 /* Carousel Navigation Buttons */
@@ -246,13 +268,16 @@ body {
 }
 
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
     .carousel-button {
         display: none;
     }
     .work-item {
+        flex: 0 0 90%; /* Increase the width for smaller screens, or make it smaller if needed */
         padding: 15px; /* Adjust padding for smaller screens */
     }
-
     .work-carousel {
         flex-direction: column; /* Stack carousel items vertically on smaller screens */
     }
@@ -263,6 +288,11 @@ body {
     }
 }
 
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}
 
 /* Footer */
 .footer {
