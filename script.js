@@ -90,5 +90,19 @@ window.addEventListener('scroll', () => {
 });
 
 
+// Check if the document is fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.nav');
+    const hero = document.querySelector('.hero');
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > hero.offsetHeight) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});
 
 

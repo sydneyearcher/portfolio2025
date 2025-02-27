@@ -415,3 +415,36 @@ h2 {
         text-align: center;
     }
 }
+
+/* For mobile devices, make the navbar fixed and make it hide on scroll down */
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f4bbc9;  /* Make it match the header color */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: top 0.3s ease;  /* Smooth transition for hiding */
+    }
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Add some space at the top of the page so it doesn't overlap content */
+    body {
+        padding-top: 60px;  /* Adjust based on the height of your navbar */
+    }
+
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+}
+
+/* When scrolled, add a background color to the navbar */
+.nav.scrolled {
+    background-color: rgba(244, 187, 201, 0.9);  /* Light pink with transparency */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Add shadow for effect */
+}
