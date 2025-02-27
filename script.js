@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.querySelector('.nav');
     const hero = document.querySelector('.hero');
+    const hamburger = document.getElementById('hamburger-icon');
+    const navLinks = document.getElementById('nav-links');
     
-    // Listen for scroll events
+    // Toggle the mobile menu
+    hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+    });
+
+    // Hide navbar on scroll
     window.addEventListener('scroll', function() {
-        // Adjust the navbar behavior for desktop and mobile
         if (window.scrollY > hero.offsetHeight) {
             navbar.classList.add('scrolled');
         } else {
