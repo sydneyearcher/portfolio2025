@@ -170,60 +170,108 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Work Section */
+/* Work Section / Carousel */
 .work {
     padding: 4rem 2rem;
     background: #f4f4f4;
     text-align: center;
 }
 
-.work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.carousel {
+    position: relative;
+    width: 80%; /* Adjusts to fit your theme */
+    margin: 0 auto; /* Center the carousel */
+    overflow: hidden;
 }
 
-.work-item {
-    background: #fff;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.work-item:hover {
-    transform: translateY(-10px);
-}
-
-.work-item img {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-/* Carousel */
 .work-carousel {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    max-width: 800px;
-    margin: 0 auto;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .work-item {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    margin-right: 16px;
+    flex: 0 0 100%; /* Each item takes full width */
+    text-align: center;
+    padding: 0; /* Remove padding from work items */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center;
+    position: relative; /* Needed for caption positioning */
 }
 
-.work-item video, .work-item img {
+/* Fix images and videos inside carousel */
+.work-item img, .work-item video {
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    height: auto; /* Ensure aspect ratio is preserved */
+    object-fit: cover; /* Ensures images cover the container without stretching */
 }
+
+/* Caption styling */
+.work-item .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 90%; /* Ensures caption is inside the frame */
+    text-align: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f7d1d8; /* Soft pink */
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.carousel-button:hover {
+    background: #f4bbc9;  /* Lighter pink on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+@media (max-width: 768px) {
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    .work-item {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    /* Optional: Adjust the caption text size on small screens */
+    .work-item .caption {
+        font-size: 1rem;
+        width: 100%; /* Make sure the caption is inside the frame */
+    }
+
+    .work-carousel {
+        flex-direction: column; /* Stack carousel items vertically on smaller screens */
+    }
+}
+
 
 /* Footer */
 .footer {
@@ -267,6 +315,52 @@ h2 {
     line-height: 1.8;
     margin-bottom: 1.5rem;
 }
+
+/* Contact Section */
+.contact {
+    padding: 4rem 2rem;
+    background: #fff;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact button {
+    background: #f4bbc9;
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact button:hover {
+    background: #f7d1d8;
+}
+
+@media (max-width: 768px) {
+    .contact form {
+        padding: 2rem;
+    }
+    .contact input, .contact textarea {
+        font-size: 1rem; /* Ensure readability */
+    }
+}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
