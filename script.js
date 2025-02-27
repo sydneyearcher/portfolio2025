@@ -1,15 +1,12 @@
-// Smooth Scrolling for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+let lastScrollY = window.scrollY;
 
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
+window.addEventListener('scroll', function() {
+    if (window.scrollY > lastScrollY) {
+        navbar.style.top = '-60px'; // Adjust the value to hide the navbar
+    } else {
+        navbar.style.top = '0'; // Bring the navbar back when scrolling up
+    }
+    lastScrollY = window.scrollY; // Update last scroll position
 });
 
 // Back-to-Top Button

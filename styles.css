@@ -445,11 +445,22 @@ h2 {
     }
 }
 
-/* When scrolled, make navbar smaller */
+/* Initial styling for navbar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem; /* Larger padding */
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+/* When scrolled, reduce the padding to make the navbar smaller */
 .nav.scrolled {
+    padding: 0.5rem 2rem; /* Smaller padding when scrolled */
     background-color: rgba(244, 187, 201, 0.9);  /* Light pink with transparency */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Add shadow for effect */
-    padding: 0.5rem 2rem; /* Reduce padding to make navbar more compact */
 }
 
 /* Adjust the size of nav links in scrolled state */
