@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > lastScrollY) {
+        navbar.style.top = '-80px';  // Adjust value as needed
+    } else {
+        navbar.style.top = '0';
+    }
+    lastScrollY = window.scrollY;
+});
+
 // Back-to-Top Button
 // Back-to-Top Button
 const backToTopButton = document.createElement('button');
