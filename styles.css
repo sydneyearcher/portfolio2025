@@ -30,6 +30,8 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem 2rem;  /* Initial padding */
+    transition: padding 0.3s ease; /* Smooth transition for padding */
 }
 
 .nav-links {
@@ -443,8 +445,14 @@ h2 {
     }
 }
 
-/* When scrolled, add a background color to the navbar */
+/* When scrolled, make navbar smaller */
 .nav.scrolled {
     background-color: rgba(244, 187, 201, 0.9);  /* Light pink with transparency */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Add shadow for effect */
+    padding: 0.5rem 2rem; /* Reduce padding to make navbar more compact */
+}
+
+/* Adjust the size of nav links in scrolled state */
+.nav.scrolled .nav-links a {
+    font-size: 0.9rem; /* Slightly smaller text */
 }
