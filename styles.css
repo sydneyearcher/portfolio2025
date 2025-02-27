@@ -92,8 +92,6 @@ body {
     white-space: nowrap;
     border-right: 3px solid #f8f4e3;
     animation: blink-cursor 0.6s steps(2) infinite;
-    max-width: 90%; /* Prevents it from overflowing */
-    word-wrap: break-word; /* Ensures long words don't break layout */
     text-align: center;
 }
 
