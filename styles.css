@@ -18,17 +18,10 @@ body {
     background: #f4bbc9;
     color: #F7EEED;
     padding: 1rem 2rem;
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.header.shrink {
-    padding: 0.5rem 2rem; /* Reduce padding */
-    background: #f4a6b8; /* Optional: Darker shade on scroll */
 }
 
 .nav {
@@ -63,11 +56,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #555;
     text-align: center;
-    width: 100%;
     padding: 2rem;
+    background-attachment: fixed;
+    position: relative;
 }
-
 
 /* Button Styling */
 .hero .btn {
@@ -88,19 +84,19 @@ body {
     background: #FAE6E7;
 }
 
+
 .hero h1 {
-    font-size: 2rem;
-    max-width: 90%;
-    min-width: 300px;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #f8f4e3;
+    animation: blink-cursor 0.6s steps(2) infinite;
+    max-width: 90%; /* Prevents it from overflowing */
+    word-wrap: break-word; /* Ensures long words don't break layout */
     text-align: center;
-    white-space: normal; /* Change from nowrap to normal */
-    overflow: visible; /* Ensure text is fully displayed */
-    display: block;
 }
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; } /* Ensure it fully expands */
-}
+
 
 
 @keyframes blink-cursor {
@@ -403,12 +399,6 @@ h2 {
 
 /*mobile version refining*/
 
-@keyframes blink-cursor {
-    0% { border-right-color: #000; }
-    50% { border-right-color: transparent; }
-    100% { border-right-color: #000; }
-}
-
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
@@ -425,15 +415,5 @@ h2 {
         padding: 10px;
         width: 100%;
         text-align: center;
-    }
-    .hero h1 {
-        font-size: 2rem;
-        max-width: 90%;
-        min-width: 300px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        display: inline-block;
-        animation: typing 3s steps(20, end) forwards, blink-cursor 0.6s steps(2) infinite;
     }
 }
