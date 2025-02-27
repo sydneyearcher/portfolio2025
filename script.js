@@ -53,20 +53,34 @@ document.querySelectorAll('.about, .work, .contact').forEach(section => {
 // Typewriter Effect for Hero Section
 document.addEventListener('DOMContentLoaded', () => {
     const heroText = document.querySelector('.hero h1');
-    const text = heroText.textContent;
-    heroText.textContent = '';
+    if (!heroText) return; // Prevent errors if element is missing
+
+    const text = heroText.textContent.trim(); // Trim whitespace for better consistency
+    heroText.textContent = ''; // Clear the existing text
     let i = 0;
 
+    // Ensure the typewriter effect works on both desktop and mobile
     function typeWriter() {
         if (i < text.length) {
             heroText.textContent += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 100); // You can adjust the speed here
         }
     }
 
-    typeWriter();
+    // Run the typewriter effect after the text is visible
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                typeWriter();
+                observer.disconnect(); // Stop observing after starting the effect
+            }
+        });
+    }, { threshold: 0.5 }); // Start when 50% of the element is in view
+
+    observer.observe(heroText);
 });
+
 
 
 // Parallax Scrolling Effect
