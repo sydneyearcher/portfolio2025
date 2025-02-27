@@ -445,7 +445,7 @@ h2 {
     }
 }
 
-/* Initial styling for navbar */
+/* Initial styles for navbar (for both mobile and desktop) */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -454,13 +454,27 @@ h2 {
     margin: 0 auto;
     padding: 1rem 2rem; /* Larger padding */
     transition: padding 0.3s ease, background-color 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* When scrolled, reduce the padding to make the navbar smaller */
+/* When scrolled, reduce padding and change background color */
 .nav.scrolled {
     padding: 0.5rem 2rem; /* Smaller padding when scrolled */
     background-color: rgba(244, 187, 201, 0.9);  /* Light pink with transparency */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Add shadow for effect */
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    .nav {
+        padding: 0.5rem 1rem; /* Smaller padding on mobile */
+    }
+
+    .nav.scrolled {
+        padding: 0.3rem 1rem; /* Even smaller padding when scrolled on mobile */
+    }
 }
 
 /* Adjust the size of nav links in scrolled state */

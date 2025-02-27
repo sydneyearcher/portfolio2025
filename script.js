@@ -1,12 +1,16 @@
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', function() {
-    if (window.scrollY > lastScrollY) {
-        navbar.style.top = '-60px'; // Adjust the value to hide the navbar
-    } else {
-        navbar.style.top = '0'; // Bring the navbar back when scrolling up
-    }
-    lastScrollY = window.scrollY; // Update last scroll position
+document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.nav');
+    const hero = document.querySelector('.hero');
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', function() {
+        // Adjust the navbar behavior for desktop and mobile
+        if (window.scrollY > hero.offsetHeight) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 });
 
 // Back-to-Top Button
