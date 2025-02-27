@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector('.nav');
     const hero = document.querySelector('.hero');
     const hamburger = document.getElementById('hamburger-icon');
@@ -17,7 +17,34 @@ document.addEventListener("DOMContentLoaded", function() {
             navbar.classList.remove('scrolled');
         }
     });
+    
+    // Carousel Navigation
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const carousel = document.querySelector('.work-carousel');
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.work-item');
+
+    // Show the first item initially
+    carousel.style.transform = `translateX(0%)`;
+
+    // Go to the previous item
+    prevButton.addEventListener('click', function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    });
+
+    // Go to the next item
+    nextButton.addEventListener('click', function () {
+        if (currentIndex < items.length - 1) {
+            currentIndex++;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    });
 });
+
 
 
 // Back-to-Top Button

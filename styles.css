@@ -179,7 +179,7 @@ body {
 
 .carousel {
     position: relative;
-    width: 80%; /* Adjusts to fit your theme */
+    width: 80%; /* Keeps it within a readable width */
     margin: 0 auto; /* Center the carousel */
     overflow: hidden;
 }
@@ -187,42 +187,36 @@ body {
 .work-carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 100%;
+    width: 100%; /* Ensure it takes full space */
 }
 
 .work-item {
     flex: 0 0 100%; /* Each item takes full width */
     text-align: center;
-    padding: 0; /* Remove padding from work items */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center;
-    position: relative; /* Needed for caption positioning */
+    padding: 20px;
+    position: relative;
 }
 
-/* Fix images and videos inside carousel */
-.work-item img, .work-item video {
-    width: 100%;
-    height: auto; /* Ensure aspect ratio is preserved */
-    object-fit: cover; /* Ensures images cover the container without stretching */
+.work-item img,
+.work-item video {
+    width: 100%; /* Ensures images and videos are responsive */
+    height: auto;
+    object-fit: cover; /* Keeps aspect ratio and ensures images/videos fill the space without distortion */
 }
 
-/* Caption styling */
 .work-item .caption {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background for readability */
     color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0.5rem;
     font-size: 1.2rem;
-    width: 90%; /* Ensures caption is inside the frame */
-    text-align: center;
+    border-radius: 4px;
 }
 
+/* Carousel Navigation Buttons */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -261,14 +255,13 @@ body {
         padding: 15px; /* Adjust padding for smaller screens */
     }
 
-    /* Optional: Adjust the caption text size on small screens */
-    .work-item .caption {
-        font-size: 1rem;
-        width: 100%; /* Make sure the caption is inside the frame */
-    }
-
     .work-carousel {
         flex-direction: column; /* Stack carousel items vertically on smaller screens */
+    }
+
+    .work-item .caption {
+        font-size: 1rem; /* Smaller font for captions on mobile */
+        padding: 0.3rem; /* Adjust padding */
     }
 }
 
