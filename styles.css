@@ -247,10 +247,8 @@ body {
 
 @media (max-width: 768px) {
     .carousel-button {
-        font-size: 1.2rem;
-        padding: 8px;
+        display: none;
     }
-
     .work-item {
         padding: 15px; /* Adjust padding for smaller screens */
     }
