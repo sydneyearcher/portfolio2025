@@ -19,53 +19,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const carousel = document.querySelector(".work-carousel");
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-    
-        carousel.addEventListener("mousedown", (e) => {
-            isDown = true;
-            carousel.classList.add("active");
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
-    
-        carousel.addEventListener("mouseleave", () => {
-            isDown = false;
-            carousel.classList.remove("active");
-        });
-    
-        carousel.addEventListener("mouseup", () => {
-            isDown = false;
-            carousel.classList.remove("active");
-        });
-    
-        carousel.addEventListener("mousemove", (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2; // Adjust speed
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-    
-        // Touch support for mobile
-        let touchStartX = 0;
-        let touchScrollLeft = 0;
-    
-        carousel.addEventListener("touchstart", (e) => {
-            touchStartX = e.touches[0].pageX;
-            touchScrollLeft = carousel.scrollLeft;
-        });
-    
-        carousel.addEventListener("touchmove", (e) => {
-            const touchX = e.touches[0].pageX;
-            const move = touchX - touchStartX;
-            carousel.scrollLeft = touchScrollLeft - move;
-        });
-    });
-    
+ // Carousel Navigation
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
+const carousel = document.querySelector('.work-carousel');
+let currentIndex = 0;
+const items = document.querySelectorAll('.work-item');
+const totalItems = items.length;
+
+// Set initial position
+carousel.style.transform = `translateX(0%)`;
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Go to the previous item
+prevButton.addEventListener('click', function () {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalItems - 1; // Loop to the last item
+    }
+    updateCarousel();
+});
+
+// Go to the next item
+nextButton.addEventListener('click', function () {
+    if (currentIndex < totalItems - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Loop to the first item
+    }
+    updateCarousel();
+});
+
+
     // Back-to-Top Button
     const backToTopButton = document.createElement('button');
     backToTopButton.textContent = '↑';
