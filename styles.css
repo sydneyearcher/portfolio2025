@@ -421,3 +421,80 @@ h2 {
         width: 80%;
     }
 }
+
+/* Make the container scrollable */
+.slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on mobile */
+}
+
+/* Custom scrollbar styling */
+.slider-container::-webkit-scrollbar {
+    height: 8px;  /* Scrollbar thickness */
+}
+
+.slider-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.slider-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Hide the scrollbar on mobile devices */
+@media (max-width: 768px) {
+    .slider-container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Styling for the work carousel */
+.work-carousel {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.work-item {
+    display: inline-block;
+    width: 300px;  /* Adjust width of each item */
+    margin-right: 20px;  /* Space between items */
+}
+
+.work-item video, .work-item img {
+    width: 100%;  /* Make video/image take full width of the container */
+    height: auto;
+}
+
+/* Optional: Adjust the container's width to fit better in your layout */
+.my-work-container {
+    max-width: 100%;
+}
+
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #f7d1d8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #f7d1d8;
+}
+
+

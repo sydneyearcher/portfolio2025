@@ -19,13 +19,71 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
- // Carousel Navigation
-const prevButton = document.querySelector('.carousel-button.prev');
-const nextButton = document.querySelector('.carousel-button.next');
-const carousel = document.querySelector('.work-carousel');
-let currentIndex = 0;
-const items = document.querySelectorAll('.work-item');
-const totalItems = items.length;
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select elements
+        const navbar = document.querySelector('.nav');
+        const hero = document.querySelector('.hero');
+        const hamburger = document.getElementById('hamburger-icon');
+        const navLinks = document.getElementById('nav-links');
+        
+        // Toggle the mobile menu
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+        });
+    
+        // Hide navbar on scroll
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > hero.offsetHeight) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    
+
+    
+        // Go to the previous item
+        prevButton.addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalItems - 1; // Loop to the last item
+            }
+            updateCarousel();
+        });
+    
+        // Go to the next item
+        nextButton.addEventListener('click', function () {
+            if (currentIndex < totalItems - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop to the first item
+            }
+            updateCarousel();
+        });
+    
+        // Back-to-Top Button (Continue from your previous script if needed)
+        const backToTopButton = document.createElement('button');
+        backToTopButton.textContent = '↑';
+        backToTopButton.classList.add('back-to-top');
+        document.body.appendChild(backToTopButton);
+    
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+    
 
 // Set initial position
 carousel.style.transform = `translateX(0%)`;
@@ -124,5 +182,26 @@ nextButton.addEventListener('click', function () {
     window.addEventListener('scroll', () => {
         const heroSection = document.querySelector('.hero');
         heroSection.style.backgroundPositionY = `${window.scrollY * 0.5}px`; // Adjust effect strength
+    });
+});
+
+
+// slider for carousel
+
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+const sliderContainer = document.querySelector('.slider-container');
+
+prevButton.addEventListener('click', () => {
+    sliderContainer.scrollBy({
+        left: -300,  // Scroll left by 300px
+        behavior: 'smooth'
+    });
+});
+
+nextButton.addEventListener('click', () => {
+    sliderContainer.scrollBy({
+        left: 300,   // Scroll right by 300px
+        behavior: 'smooth'
     });
 });
