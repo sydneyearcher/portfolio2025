@@ -463,9 +463,15 @@ h2 {
 
 .work-item {
     display: inline-block;
-    width: 300px;  /* Adjust width of each item */
-    margin-right: 20px;  /* Space between items */
+    width: 500px;  /* Adjust width of each item */
+    margin-right: 10px;  /* Space between items */
+    flex: 0 0 300px; /* Adjust as needed */
+    max-width: 100%;
+    word-wrap: break-word; /* Ensures long words break */
+    overflow-wrap: break-word; /* Alternative property for better support */
+    white-space: normal; /* Prevents text from staying in a single line */
 }
+
 
 .work-item video, .work-item img {
     width: 100%;  /* Make video/image take full width of the container */
