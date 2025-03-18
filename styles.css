@@ -6,11 +6,12 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f7d1d8;
     overflow-x: hidden;
+    
 }
 
 /* Header */
@@ -24,7 +25,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Navigation */
+/* Navigation */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -52,7 +53,13 @@ body {
     background: #f7d1d8;
 }
 
-/* Responsive navigation */
+.hamburger {
+    display: none; /* Hide by default */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsive Navigation */
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
@@ -93,6 +100,20 @@ body {
     position: relative;
 }
 
+.hero-content h1 {
+    font-family: "Pinyon Script", cursive;
+    font-size: 3rem; /* Adjust for larger text */
+    font-weight: bold;
+    text-align: center;
+    color: #555; /* Ensure good contrast */
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Adjust to match design */
+    text-align: center;
+    color: #555;
+}
+
 .hero .btn {
     background: #f4bbc9;
     color: #fff;
@@ -110,47 +131,13 @@ body {
     background: #FAE6E7;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid #f8f4e3;
-    width: 0;
-    animation: typing 3s steps(30, end) forwards, blink-cursor 0.6s steps(2) infinite;
-    text-align: center;
-}
-
-
-/* Typing animation */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-cursor {
-    0% { border-right-color: #000; }
-    50% { border-right-color: transparent; }
-    100% { border-right-color: #000; }
-}
-
 /* About Section */
 .about {
+    font-family: 'Lora', serif;
     padding: 4rem 2rem;
     background: #fff;
-    color: #333;
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
     color: #555;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    text-align: center;
 }
 
 .about-content {
@@ -158,16 +145,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-}
-
-.about-text {
-    font-size: 1rem;
-    line-height: 1.8;
-    text-align: left;
-}
-
-.about-text p {
-    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .profile-img {
@@ -175,139 +153,118 @@ body {
     height: auto;
     border-radius: 50%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .about-content:hover .profile-img {
     transform: scale(1.05);
-    transition: transform 0.3s ease;
 }
 
-/* Work Section / Carousel */
-/* Work Section / Carousel */
+/* Work Section */
 .work {
+    font-family: 'Lora', serif;
     padding: 4rem 2rem;
     background: #f4f4f4;
     text-align: center;
-    overflow: hidden; /* Ensures no overflow is visible */
+    overflow: hidden;
 }
 
-
-.carousel {
-    position: relative;
-    width: 80%; /* Adjust as necessary */
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0 20px; /* Add padding to ensure space on the sides */
+.work h2 {
+    font-size: 2rem; /* Increase the size as needed */
+    color: #555; /* Set color to #555 */
+    font-weight: bold; /* Make it bold for emphasis */
+    margin-bottom: 2rem; /* Add some spacing if needed */
 }
 
 .work-carousel {
     display: flex;
+    position: relative; /* Make the carousel container relative */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 10px;
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
-    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     scroll-behavior: smooth;
 }
 
 .work-carousel::-webkit-scrollbar {
-    display: none; /* Hides scrollbar in Chrome/Safari */
+    display: none;
 }
 
 .work-item {
-    flex: 0 0 50%; /* Reduce the width of each item */
+    flex: 0 0 50%;
     text-align: center;
     padding: 20px;
-    position: relative;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    box-sizing: border-box;
-    max-width: 90%; /* Optional: max-width to ensure items don’t get too wide */
+    max-width: 90%;
 }
-
-
 
 .work-item img,
 .work-item video {
-    width: 100%; /* Ensures images and videos are responsive */
+    width: 100%;
     height: auto;
-    object-fit: cover; /* Keeps aspect ratio and ensures images/videos fill the space without distortion */
-    border-radius: 4px; /* Rounded corners for media */
-}
-
-.work-item .caption {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6); /* Dark background for readability */
-    color: #fff;
-    padding: 0.5rem;
-    font-size: 1rem;
+    object-fit: cover;
     border-radius: 4px;
-    font-family: 'Arial', sans-serif; /* Optional font change */
-    max-width: 90%; /* Optional: ensures caption doesn't stretch too wide */
-    margin: 0 auto; /* Centering caption */
 }
 
-/* Carousel Navigation Buttons */
-.carousel-button {
+/* Style for previous button */
+.prev-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #f7d1d8; /* Soft pink */
-    color: #fff;
-    border: none;
-    padding: 12px 16px;
+    left:25%;
+    font-size: 2rem; /* Increase the font size of the arrow */
+    width: 50px; /* Optional: Set a fixed width for consistency */
+    height: 50px; /* Optional: Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Optional: Set background color */
+    border: 2px solid #f4bbc9; /* Add a border to define the button */
+    border-radius: 50%; /* Make the button round */
     cursor: pointer;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 10px; /* Add padding for a larger clickable area */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.carousel-button:hover {
-    background: #f4bbc9;  /* Lighter pink on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+/* Hover effect for previous button */
+.prev-button:hover {
+    background-color: #f4bbc9; /* Set hover color */
+    color: #fff; /* Change text color on hover */
 }
 
-.carousel-button.prev {
-    left: 15px;
+/* Style for next button */
+.next-button {
+    position: absolute;
+    left: 50%;
+    font-size: 2rem; /* Increase the font size of the arrow */
+    width: 50px; /* Optional: Set a fixed width for consistency */
+    height: 50px; /* Optional: Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Optional: Set background color */
+    border: 2px solid #f4bbc9; /* Add a border to define the button */
+    border-radius: 50%; /* Make the button round */
+    cursor: pointer;
+    padding: 10px; /* Add padding for a larger clickable area */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.carousel-button.next {
-    right: 15px;
+/* Hover effect for next button */
+.next-button:hover {
+    background-color: #f4bbc9; /* Set hover color */
+    color: #fff; /* Change text color on hover */
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hamburger {
-        display: block;
-    }
-    .carousel-button {
-        display: none;
-    }
-    .work-item {
-        flex: 0 0 90%; /* Increase the width for smaller screens, or make it smaller if needed */
-        padding: 15px; /* Adjust padding for smaller screens */
-    }
-    .work-carousel {
-        flex-direction: column; /* Stack carousel items vertically on smaller screens */
+@media (min-width: 1024px) {
+    .prev-button {
+        left: 45%; /* Adjust position for larger screens */
     }
 
-    .work-item .caption {
-        font-size: 1rem; /* Smaller font for captions on mobile */
-        padding: 0.3rem; /* Adjust padding */
-    }
-}
-
-@media (min-width: 769px) {
-    .hamburger {
-        display: none;
+    .next-button {
+        left: 55%; /* Adjust position for larger screens */
     }
 }
 
@@ -338,167 +295,78 @@ body {
     background-color: #f7d1d8;
 }
 
-/* General Typography */
-h2 {
-    font-family: 'Lora', serif;
-    font-size: 2.5rem;
-    color: #555;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-}
-
-.about-text p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-/* Contact Section */
-.contact {
-    padding: 4rem 2rem;
-    background: #fff;
-    text-align: center;
-}
-
-.contact form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.contact input, .contact textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.contact button {
-    background: #f4bbc9;
-    color: #fff;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.contact button:hover {
-    background: #f7d1d8;
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .contact form {
-        padding: 2rem;
+    .hero h1 {
+        font-size: 2rem;
     }
-    .contact input, .contact textarea {
-        font-size: 1rem; /* Ensure readability */
-    }
-}
-
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .carousel-button {
+    .hero-content p {
         font-size: 1.2rem;
-        padding: 8px;
+    }
+    .carousel-button {
+        display: none;
+    }
+
+    .work-item {
+        flex: 0 0 90%;
+        padding: 15px;
     }
 
     .about-content {
         flex-direction: column;
-        align-items: center;
+    }
+    .prev-button {
+        left: 15%; /* Adjust for smaller screens */
     }
 
-    .about-image img {
-        width: 80%;
-    }
-}
-
-/* Make the container scrollable */
-.slider-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on mobile */
-}
-
-/* Custom scrollbar styling */
-.slider-container::-webkit-scrollbar {
-    height: 8px;  /* Scrollbar thickness */
-}
-
-.slider-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.slider-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-.slider-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Hide the scrollbar on mobile devices */
-@media (max-width: 768px) {
-    .slider-container::-webkit-scrollbar {
-        display: none;
+    .next-button {
+        left: 70%; /* Adjust for smaller screens */
     }
 }
 
-/* Styling for the work carousel */
-.work-carousel {
-    display: inline-block;
-    white-space: nowrap;
+/*Contact Me*/
+
+#contact-form {
+    font-family: 'Lora', serif;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 15px;
 }
 
-.work-item {
-    display: inline-block;
-    width: 500px;  /* Adjust width of each item */
-    margin-right: 10px;  /* Space between items */
-    flex: 0 0 300px; /* Adjust as needed */
-    max-width: 100%;
-    word-wrap: break-word; /* Ensures long words break */
-    overflow-wrap: break-word; /* Alternative property for better support */
-    white-space: normal; /* Prevents text from staying in a single line */
+#contact-form input,
+#contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-family: inherit;
 }
 
-
-.work-item video, .work-item img {
-    width: 100%;  /* Make video/image take full width of the container */
-    height: auto;
-}
-
-/* Optional: Adjust the container's width to fit better in your layout */
-.my-work-container {
-    max-width: 100%;
-}
-
-
-/* Back-to-Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 0.5rem 1rem;
-    background-color: #f7d1d8;
+#contact-form button {
+    background: #f4bbc9;
     color: #fff;
+    padding: 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    display: none;
     transition: background 0.3s ease;
+    width: 100%;
 }
 
-.back-to-top:hover {
-    background-color: #f7d1d8;
+#contact-form button:hover {
+    background: #FAE6E7;
+}
+
+.contact {
+    color: #555;
+    font-family: 'Lora', serif;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.contact h2 {
+    margin-bottom: 2rem;
 }
