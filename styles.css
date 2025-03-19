@@ -228,35 +228,49 @@ body {
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Hover effect for previous button */
-.prev-button:hover {
-    background-color: #f4bbc9; /* Set hover color */
-    color: #fff; /* Change text color on hover */
-}
-
-/* Style for next button */
-.next-button {
+/* General button styles */
+.prev-button, .next-button {
     position: absolute;
-    left: 50%;
-    font-size: 2rem; /* Increase the font size of the arrow */
-    width: 50px; /* Optional: Set a fixed width for consistency */
-    height: 50px; /* Optional: Set a fixed height */
+    font-size: 1.8rem; /* Adjust font size for a sleeker look */
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent; /* Optional: Set background color */
-    border: 2px solid #f4bbc9; /* Add a border to define the button */
-    border-radius: 50%; /* Make the button round */
+    background-color: rgba(244, 187, 201, 0.2); /* Soft transparent background */
+    border: 2px solid #f4bbc9;
+    border-radius: 50%; /* Circular shape */
     cursor: pointer;
-    padding: 10px; /* Add padding for a larger clickable area */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: all 0.3s ease; /* Smooth transitions */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    backdrop-filter: blur(5px); /* Adds a slight blur effect */
 }
 
-/* Hover effect for next button */
-.next-button:hover {
-    background-color: #f4bbc9; /* Set hover color */
-    color: #fff; /* Change text color on hover */
+/* Previous button position */
+.prev-button {
+    left: 10%;
 }
+
+/* Next button position */
+.next-button {
+    left: 90%;
+}
+
+/* Hover effect */
+.prev-button:hover, .next-button:hover {
+    background-color: #f4bbc9; /* Pink color on hover */
+    color: white;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+/* Arrow icon styling */
+.prev-button::before,
+.next-button::before {
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
 
 @media (min-width: 1024px) {
     .prev-button {
